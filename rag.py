@@ -13,7 +13,7 @@ Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
 
 # Set up ChromaDB as our local vector store
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
-chroma_collection = chroma_client.get_or_create_collection("dutchbros")
+chroma_collection = chroma_client.get_or_create_collection("discounttire")
 vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 
@@ -34,8 +34,8 @@ print("Index built successfully!")
 query_engine = index.as_query_engine(similarity_top_k=3)
 
 # Interactive query loop
-print("\n--- Dutch Bros Knowledge Base ---")
-print("Ask anything about Dutch Bros. Type 'quit' to exit.\n")
+print("\n--- Discount Tire Knowledge Base ---")
+print("Ask anything about Discount Tire. Type 'quit' to exit.\n")
 
 while True:
     question = input("Your question: ")

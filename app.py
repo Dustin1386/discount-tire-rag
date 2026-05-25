@@ -22,10 +22,10 @@ CORS(app)
 Settings.llm = OpenAI(
     model="gpt-4o",
     temperature=0.1,
-    system_prompt="""You are a helpful knowledge base assistant for Dutch Bros Coffee. 
+    system_prompt="""You are a helpful knowledge base assistant for Discount Tire. 
     Answer questions based only on the information provided to you.
     If you don't have the answer in your knowledge base, say clearly: 
-    'I don't have that information in my knowledge base. Please check with your manager or visit dutchbros.com.'
+    'I don't have that information in my knowledge base. Please check with your manager or visit discounttire.com.'
     Never make up information. Always be friendly and concise.""",
 )
 Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
@@ -33,7 +33,7 @@ Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
 # Initialize ChromaDB and index
 print("Initializing knowledge base...")
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
-chroma_collection = chroma_client.get_or_create_collection("dutchbros")
+chroma_collection = chroma_client.get_or_create_collection("discounttire")
 vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 

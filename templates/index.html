@@ -3,300 +3,359 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dutch Bros Knowledge Base</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Discount Tire Knowledge Base</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --blue: #004B8D;
-    --blue-dark: #003366;
-    --yellow: #FFC425;
+    --red: #CC0000;
+    --red-dark: #990000;
+    --red-bright: #ff1a1a;
+    --black: #111111;
+    --black-mid: #1c1c1c;
     --white: #ffffff;
-    --light: #f5f7fa;
+    --light: #f5f5f5;
     --gray: #6b7280;
     --border: #e5e7eb;
   }
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--light);
+    background: var(--black);
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 780px;
-    height: 90vh;
-    background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  /* HEADER */
-  .header {
-    background: var(--blue-dark);
-    padding: 24px 32px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
     position: relative;
     overflow: hidden;
   }
 
-  .header::after {
+  body::before {
     content: '';
     position: absolute;
-    right: -20px; top: -20px;
-    width: 120px; height: 120px;
-    background: var(--yellow);
-    border-radius: 50%;
-    opacity: 0.1;
+    top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(204,0,0,0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
 
-  .header-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--yellow);
+  body::after {
+    content: '';
+    position: absolute;
+    bottom: -200px; left: -200px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(204,0,0,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 800px;
+    height: 92vh;
+    background: var(--white);
     border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(204,0,0,0.2);
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--black);
+    padding: 0 28px;
+    height: 72px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 24px;
+    justify-content: space-between;
     flex-shrink: 0;
+    border-bottom: 3px solid var(--red);
+    position: relative;
+    overflow: hidden;
   }
 
-  .header-text h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--white);
-    letter-spacing: 2px;
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(204,0,0,0.03) 40px,
+      rgba(204,0,0,0.03) 41px
+    );
+    pointer-events: none;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-block {
+    display: flex;
+    flex-direction: column;
     line-height: 1;
   }
 
-  .header-text p {
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    margin-top: 3px;
+  .logo-discount {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--red);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+  }
+
+  .logo-tire {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .header-subtitle {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding-left: 14px;
+    margin-left: 2px;
   }
 
   .status {
-    margin-left: auto;
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
   }
 
   .status-dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     background: #22c55e;
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(34,197,94,0); }
   }
 
   /* CHAT AREA */
   .chat-area {
     flex: 1;
     overflow-y: auto;
-    padding: 24px 32px;
+    padding: 24px 28px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    background: var(--light);
   }
 
-  .chat-area::-webkit-scrollbar { width: 6px; }
+  .chat-area::-webkit-scrollbar { width: 4px; }
   .chat-area::-webkit-scrollbar-track { background: transparent; }
-  .chat-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  .chat-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
   /* MESSAGES */
   .message {
     display: flex;
-    gap: 12px;
-    animation: fadeIn 0.3s ease;
+    gap: 10px;
+    animation: slideUp 0.25s ease;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .message.user {
-    flex-direction: row-reverse;
-  }
+  .message.user { flex-direction: row-reverse; }
 
   .avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 700;
     flex-shrink: 0;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.5px;
   }
 
   .avatar.bot {
-    background: var(--blue);
+    background: var(--black);
+    color: var(--red);
+    border: 1px solid rgba(204,0,0,0.3);
+    font-size: 10px;
+    letter-spacing: 0;
   }
 
   .avatar.user {
-    background: var(--yellow);
+    background: var(--red);
+    color: var(--white);
   }
 
   .bubble {
-    max-width: 70%;
-    padding: 12px 16px;
-    border-radius: 14px;
-    font-size: 14px;
+    max-width: 72%;
+    padding: 11px 15px;
+    border-radius: 10px;
+    font-size: 13.5px;
     line-height: 1.65;
   }
 
   .message.bot .bubble {
-    background: var(--light);
-    color: #1a1a2e;
-    border-bottom-left-radius: 4px;
+    background: var(--white);
+    color: var(--black);
+    border: 0.5px solid var(--border);
+    border-bottom-left-radius: 3px;
   }
 
   .message.user .bubble {
-    background: var(--blue);
+    background: var(--red);
     color: var(--white);
-    border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 3px;
   }
 
-  /* TYPING INDICATOR */
-  .typing {
+  /* TYPING */
+  .typing-bubble {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    border-bottom-left-radius: 3px;
+    padding: 12px 15px;
     display: flex;
-    gap: 4px;
-    padding: 14px 16px;
-    background: var(--light);
-    border-radius: 14px;
-    border-bottom-left-radius: 4px;
-    width: fit-content;
+    gap: 5px;
+    align-items: center;
   }
 
-  .typing span {
-    width: 8px;
-    height: 8px;
+  .typing-bubble span {
+    width: 7px;
+    height: 7px;
     background: var(--gray);
     border-radius: 50%;
     animation: bounce 1.2s infinite;
   }
 
-  .typing span:nth-child(2) { animation-delay: 0.2s; }
-  .typing span:nth-child(3) { animation-delay: 0.4s; }
+  .typing-bubble span:nth-child(2) { animation-delay: 0.15s; }
+  .typing-bubble span:nth-child(3) { animation-delay: 0.3s; }
 
   @keyframes bounce {
-    0%, 60%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-6px); }
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-5px); opacity: 1; }
   }
 
-  /* SUGGESTED QUESTIONS */
+  /* SUGGESTIONS */
   .suggestions {
-    padding: 0 32px 16px;
+    padding: 0 28px 12px;
     display: flex;
-    gap: 8px;
+    gap: 7px;
     flex-wrap: wrap;
+    background: var(--light);
+    flex-shrink: 0;
   }
 
   .suggestion {
-    background: var(--light);
-    border: 1px solid var(--border);
-    color: var(--blue);
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    color: var(--black);
     font-size: 12px;
-    padding: 6px 14px;
+    padding: 6px 13px;
     border-radius: 20px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.15s;
     font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
   }
 
   .suggestion:hover {
-    background: var(--blue);
+    background: var(--red);
     color: var(--white);
-    border-color: var(--blue);
+    border-color: var(--red);
   }
 
-  /* INPUT AREA */
+  /* INPUT */
   .input-area {
-    padding: 20px 32px 24px;
+    padding: 16px 28px 20px;
     border-top: 1px solid var(--border);
     display: flex;
-    gap: 12px;
+    gap: 10px;
     align-items: flex-end;
+    background: var(--white);
+    flex-shrink: 0;
   }
 
   .input-wrapper {
     flex: 1;
     background: var(--light);
     border: 1.5px solid var(--border);
-    border-radius: 12px;
-    padding: 12px 16px;
+    border-radius: 10px;
+    padding: 10px 14px;
     transition: border-color 0.2s;
   }
 
-  .input-wrapper:focus-within {
-    border-color: var(--blue);
-  }
+  .input-wrapper:focus-within { border-color: var(--red); }
 
   textarea {
     width: 100%;
     border: none;
     background: transparent;
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    color: #1a1a2e;
+    font-size: 13.5px;
+    color: var(--black);
     resize: none;
     outline: none;
-    max-height: 120px;
+    max-height: 100px;
     line-height: 1.5;
   }
 
   textarea::placeholder { color: var(--gray); }
 
   .send-btn {
-    width: 48px;
-    height: 48px;
-    background: var(--blue);
+    width: 44px;
+    height: 44px;
+    background: var(--red);
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s, transform 0.1s;
+    transition: background 0.15s, transform 0.1s;
     flex-shrink: 0;
   }
 
-  .send-btn:hover { background: var(--blue-dark); }
+  .send-btn:hover { background: var(--red-dark); }
   .send-btn:active { transform: scale(0.95); }
   .send-btn:disabled { background: var(--border); cursor: not-allowed; }
 
-  .send-btn svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
-  }
+  .send-btn svg { width: 18px; height: 18px; fill: white; }
 
   .footer-note {
     text-align: center;
-    font-size: 11px;
+    font-size: 10.5px;
     color: var(--gray);
-    margin-top: 8px;
+    padding-bottom: 4px;
+    background: var(--white);
+    letter-spacing: 0.3px;
   }
 </style>
 </head>
@@ -305,45 +364,45 @@
 <div class="container">
 
   <div class="header">
-    <div class="header-icon">☕</div>
-    <div class="header-text">
-      <h1>Dutch Bros Knowledge Base</h1>
-      <p>AI-powered answers for broistas</p>
+    <div class="header-left">
+      <div class="logo-block">
+        <span class="logo-discount">iscount</span>
+        <span class="logo-tire">Tire</span>
+      </div>
+      <div class="header-subtitle">Knowledge Base</div>
     </div>
     <div class="status">
       <div class="status-dot"></div>
-      Online
+      AI Assistant Online
     </div>
   </div>
 
   <div class="chat-area" id="chatArea">
     <div class="message bot">
-      <div class="avatar bot">🤖</div>
-      <div class="bubble">Hey! I'm your Dutch Bros knowledge assistant. Ask me anything about our drinks, training, culture, or policies!</div>
+      <div class="avatar bot">DT</div>
+      <div class="bubble">Welcome to the Discount Tire Knowledge Base. I can answer questions about our company history, culture, locations, and more. What would you like to know?</div>
     </div>
   </div>
 
   <div class="suggestions" id="suggestions">
-    <button class="suggestion" onclick="askSuggestion(this)">What is the Annihilator?</button>
-    <button class="suggestion" onclick="askSuggestion(this)">How long is broista training?</button>
-    <button class="suggestion" onclick="askSuggestion(this)">Tell me about Dutch Rewards</button>
-    <button class="suggestion" onclick="askSuggestion(this)">What is the uniform policy?</button>
+    <button class="suggestion" onclick="askSuggestion(this)">Who founded Discount Tire?</button>
+    <button class="suggestion" onclick="askSuggestion(this)">How many stores do we have?</button>
+    <button class="suggestion" onclick="askSuggestion(this)">Tell me about the famous commercial</button>
+    <button class="suggestion" onclick="askSuggestion(this)">What is our company philosophy?</button>
   </div>
 
   <div class="input-area">
     <div class="input-wrapper">
-      <textarea 
-        id="questionInput" 
-        placeholder="Ask a question about Dutch Bros..." 
+      <textarea
+        id="questionInput"
+        placeholder="Ask anything about Discount Tire..."
         rows="1"
         onkeydown="handleKeydown(event)"
         oninput="autoResize(this)"
       ></textarea>
     </div>
     <button class="send-btn" id="sendBtn" onclick="sendQuestion()">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
     </button>
   </div>
   <div class="footer-note">Powered by RAG · GPT-4o · ChromaDB</div>
@@ -376,9 +435,9 @@
   function addMessage(text, type) {
     const div = document.createElement('div');
     div.className = `message ${type}`;
-    const avatar = type === 'bot' ? '🤖' : '👤';
+    const avatarContent = type === 'bot' ? 'DT' : 'YOU';
     div.innerHTML = `
-      <div class="avatar ${type}">${avatar}</div>
+      <div class="avatar ${type}">${avatarContent}</div>
       <div class="bubble">${text}</div>
     `;
     chatArea.appendChild(div);
@@ -390,8 +449,8 @@
     div.className = 'message bot';
     div.id = 'typing';
     div.innerHTML = `
-      <div class="avatar bot">🤖</div>
-      <div class="typing">
+      <div class="avatar bot">DT</div>
+      <div class="typing-bubble">
         <span></span><span></span><span></span>
       </div>
     `;
@@ -420,10 +479,9 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question })
       });
-
       const data = await response.json();
       hideTyping();
-      addMessage(data.answer || 'Sorry, I could not get an answer.', 'bot');
+      addMessage(data.answer || 'Sorry, I could not find an answer.', 'bot');
     } catch (err) {
       hideTyping();
       addMessage('Something went wrong. Please try again.', 'bot');
